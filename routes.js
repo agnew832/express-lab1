@@ -82,15 +82,12 @@ cartRoutes.put("/cart/:id", (request, response) => {
   updatedCart.id = id;
   //increment our nextId variable
   //nextId++;
-  //find the food
+  //find the cart
   let index = cart.findIndex(cart => id === cart.id);
   if (index >= 0) {
     //remove the old cart item and the update cart
     cart.splice(index, 1, updatedCart);
     response.json(cart);
-  } else {
-    response.status(404);
-    response.send(`There's no food by id: ${id}`);
   }
 });
 
